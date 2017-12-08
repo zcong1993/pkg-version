@@ -7,11 +7,20 @@
 
 ## Install
 
-Download the [release](), move to your `$PATH` folder.
+Download the [release](https://github.com/zcong1993/pkg-version/releases), move to your `$PATH` folder.
 
 ### build yourself
 ```sh
-$ git clone
+$ git clone https://github.com/zcong1993/pkg-version.git $GOPATH/src/github.com/zcong1993/pkg-version
+$ cd $GOPATH/src/github.com/zcong1993/pkg-version
+$ make build
+# then check the bin folder
+```
+
+## Usage
+
+```sh
+$ pv [options]
 ```
 
 ## License
