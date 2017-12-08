@@ -16,6 +16,8 @@ const (
 	Name = "pv"
 	// Version is cli current version
 	Version = "v0.0.1"
+	// Date is build date
+	Date = ""
 )
 
 // GitCommit is cli current git commit hash
@@ -82,6 +84,9 @@ func ShowVersion() {
 	version := fmt.Sprintf("\n%s version %s", Name, Version)
 	if len(GitCommit) != 0 {
 		version += fmt.Sprintf(" (%s)", GitCommit)
+	}
+	if len(Date) != 0 {
+		version += fmt.Sprintf(" (%v)", Date)
 	}
 	fmt.Println(version)
 }

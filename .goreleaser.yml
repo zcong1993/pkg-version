@@ -1,6 +1,7 @@
 builds:
   - main: main.go
     binary: pv
+    ldflags: -s -w -X main.GitCommit={{.Commit}}
     goos:
       - windows
       - darwin
