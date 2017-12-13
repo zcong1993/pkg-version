@@ -17,7 +17,7 @@ const (
 	// Name is cli name
 	Name = "pv"
 	// Version is cli current version
-	Version = "v0.0.5"
+	Version = "v0.0.6"
 	// Date is build date
 	Date = ""
 )
