@@ -4,18 +4,20 @@ import (
 	"encoding/json"
 	"flag"
 	"fmt"
+	"github.com/fatih/color"
 	"github.com/olekukonko/tablewriter"
 	"github.com/zcong1993/utils"
 	"io/ioutil"
 	"log"
 	"os"
+	"strings"
 )
 
 const (
 	// Name is cli name
 	Name = "pv"
 	// Version is cli current version
-	Version = "v0.0.4"
+	Version = "v0.0.5"
 	// Date is build date
 	Date = ""
 )
@@ -57,8 +59,14 @@ func searchPkg(name string) (*ApiResp, error) {
 func render(data ...TableData) {
 	table := tablewriter.NewWriter(os.Stdout)
 	table.SetHeader([]string{"Name", "Local", "Latest", "Next"})
+	cyan := color.New(color.FgCyan)
+	red := color.New(color.FgRed)
 	for _, td := range data {
 		for _, v := range td {
+			local := strings.Replace(v[1], "^", "", 1)
+			if local != v[2] && local != v[3] {
+				v = []string{cyan.Sprintf(v[0]), red.Sprintf(v[1]), v[2], v[3]}
+			}
 			table.Append(v)
 		}
 	}
