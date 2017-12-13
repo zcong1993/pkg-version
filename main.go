@@ -65,7 +65,7 @@ func render(data ...TableData) {
 		for _, v := range td {
 			local := strings.Replace(v[1], "^", "", 1)
 			if local != v[2] && local != v[3] {
-				v = []string{cyan.Sprintf(v[0]), red.Sprintf(v[1]), v[2], v[3]}
+				v = []string{cyan.Sprintf(v[0]), v[1], red.Sprintf(v[2]), red.Sprintf(v[3])}
 			}
 			table.Append(v)
 		}
